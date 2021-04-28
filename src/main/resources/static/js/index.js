@@ -36,6 +36,4 @@ data = [{
         postedBy: "anders_dk",
         postTime: "6 hours ago",
         amountOfComments: 146
-
-
 }]
