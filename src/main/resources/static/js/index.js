@@ -37,4 +37,5 @@ data = [{
         postTime: "6 hours ago",
         amountOfComments: 146
 
+
 }]
