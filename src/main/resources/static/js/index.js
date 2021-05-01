@@ -37,3 +37,33 @@ data = [{
         postTime: "6 hours ago",
         amountOfComments: 146
 }]
+
+//======== FETCH Post ========
+fetch(myUrl, requestOptions)
+    .then(response => response.json())
+    .then(data  => {
+        fillPostHeader(data)
+        fillCommentParent()
+        console.log(data)
+    })
+
+function fillPostHeader(item) {
+    console.log(item)
+    const headerParent = document.querySelector('.postHeader')
+
+    // === CREATE h3 ===
+    let h3 = document.createElement('h3')
+    h3.textContent = item.name;
+    headerParent.appendChild(h3)
+}
+
+function fillCommentParent(item){
+    const commentParent = document.querySelector('.comments')
+
+    // === CREATE ptag ===
+    let p = document.createElement('p')
+    p.className = "text-white"
+    p.textContent = item.description;
+    commentParent.appendChild(p)
+
+}
