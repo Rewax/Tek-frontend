@@ -1,4 +1,4 @@
-const myUrl = 'http://localhost:8080/news;'
+const myUrl = 'http://localhost:8081/news';
 
 const requestOptions = {
     'content-type': 'application/json',
@@ -6,16 +6,16 @@ const requestOptions = {
     redirect: 'follow'
 };
 
+// fetch(myUrl, requestOptions)
+//     .then(response => response.json())
+//     .then(data => {
+//         data.forEach(fillPostHeader())
+//         console.log(data)
+//     })
 
-fetch(myUrl, requestOptions)
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(fillPostHeader())
-        console.log(data)
-    })
 
 
-data = [{
+data = {
     id : 26952557,
     ranking : 1,
     link : "https://www.matuzo.at/blog/html-boilerplate/",
@@ -36,15 +36,17 @@ data = [{
         postedBy: "anders_dk",
         postTime: "6 hours ago",
         amountOfComments: 146
-}]
+}
 
 //======== FETCH Post ========
-fetch(myUrl, requestOptions)
-    .then(response => response.json())
-    .then(data  => {
-        fillPostHeader(data)
-        console.log(data)
-    })
+// fetch(myUrl, requestOptions)
+//     .then(response => response.json())
+//     .then(data  => {
+//         fillPostHeader(data)
+//         console.log(data)
+//     })
+
+fillPostHeader(data)
 
 function fillPostHeader(item) {
     console.log(item)
@@ -54,29 +56,26 @@ function fillPostHeader(item) {
     let h4 = document.createElement('h4')
     h4.textContent = item.title;
     headerParent.appendChild(h4)
+    console.log(item.title)
 
 
     // === CREATE span ===
     let span = document.createElement('span')
-    span.className = "text-white"
     span.textContent = item.points;
     headerParent.appendChild(span)
 
     // === CREATE atag ===
     let a = document.createElement('a')
-    a.className = "text-white"
     a.textContent = item.postedBy;
     headerParent.appendChild(a)
 
     // === CREATE span ===
     let span2 = document.createElement('span')
-    span2.className = "text-white"
     span2.textContent = item.postTime;
     headerParent.appendChild(span2)
 
     // === CREATE atag ===
     let a2 = document.createElement('a')
-    a2.className = "text-white"
     a2.textContent = item.amountOfComments;
     headerParent.appendChild(a2)
 
