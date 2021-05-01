@@ -1,4 +1,4 @@
-const myUrl = 'http://localhost:8081/index;'
+const myUrl = 'http://localhost:8080/news;'
 
 const requestOptions = {
     'content-type': 'application/json',
@@ -10,7 +10,7 @@ const requestOptions = {
 fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data => {
-        data.forEach(fillActivities)
+        data.forEach(fillPostHeader())
         console.log(data)
     })
 
@@ -43,7 +43,6 @@ fetch(myUrl, requestOptions)
     .then(response => response.json())
     .then(data  => {
         fillPostHeader(data)
-        fillCommentParent()
         console.log(data)
     })
 
@@ -51,19 +50,34 @@ function fillPostHeader(item) {
     console.log(item)
     const headerParent = document.querySelector('.postHeader')
 
-    // === CREATE h3 ===
-    let h3 = document.createElement('h3')
-    h3.textContent = item.name;
-    headerParent.appendChild(h3)
-}
+    // === CREATE h4 ===
+    let h4 = document.createElement('h4')
+    h4.textContent = item.title;
+    headerParent.appendChild(h4)
 
-function fillCommentParent(item){
-    const commentParent = document.querySelector('.comments')
 
-    // === CREATE ptag ===
-    let p = document.createElement('p')
-    p.className = "text-white"
-    p.textContent = item.description;
-    commentParent.appendChild(p)
+    // === CREATE span ===
+    let span = document.createElement('span')
+    span.className = "text-white"
+    span.textContent = item.points;
+    headerParent.appendChild(span)
+
+    // === CREATE atag ===
+    let a = document.createElement('a')
+    a.className = "text-white"
+    a.textContent = item.postedBy;
+    headerParent.appendChild(a)
+
+    // === CREATE span ===
+    let span2 = document.createElement('span')
+    span2.className = "text-white"
+    span2.textContent = item.postTime;
+    headerParent.appendChild(span2)
+
+    // === CREATE atag ===
+    let a2 = document.createElement('a')
+    a2.className = "text-white"
+    a2.textContent = item.amountOfComments;
+    headerParent.appendChild(a2)
 
 }
