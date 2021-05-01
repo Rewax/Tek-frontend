@@ -3,22 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="css/navbar.css" type="text/css" rel="stylesheet">
     <link href="css/index.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-<table class="table sm-4 table-striped table-bordered table-dark table-hover">
-    <thead class="thead-dark">
-    <a href="#">
-        <tr>
-            <th class="text-center" scope="col">News</th>
-            <th class="text-center" scope="col">Comments</th>
-            <th class="text-center" scope="col">Ask</th>
-            <th class="text-center" scope="col">Submit</th>
-        </tr>
-    </a>
-    </thead>
-</table>
+<header>
+    <div th:replace="fragments/navbar :: nav">
+    </div>
+</header>
+
 
 <main class="container">
     <div class="post">
