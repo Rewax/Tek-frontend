@@ -42,6 +42,12 @@ function fillPostHeader(item,index) {
     console.log(item)
     const headerParent = document.querySelector('.postHeader')
 
+    // === CREATE h2 ===
+    let h2 = document.createElement('h2')
+    h2.textContent = item.ranking;
+    headerParent.appendChild(h2)
+    console.log(item.ranking)
+
     // === CREATE atag ===
     let a = document.createElement('a')
     a.setAttribute("href", item.link)
