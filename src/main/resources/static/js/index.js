@@ -40,19 +40,34 @@ fetch(myUrl, requestOptions)
 
 function fillPostHeader(item,index) {
     console.log(item)
-    const headerParent = document.querySelector('.postHeader')
+    const containerParent = document.querySelector('.container')
 
-    // === CREATE h2 ===
-    let h2 = document.createElement('h2')
-    h2.textContent = item.ranking;
-    headerParent.appendChild(h2)
+    // === CREATE div ===
+    let titleDiv = document.createElement('div')
+    titleDiv.setAttribute("class", "title")
+    containerParent.appendChild(titleDiv)
+
+    // === CREATE div ===
+    let div = document.createElement('div')
+    div.setAttribute("class", "rank")
+    titleDiv.appendChild(div)
+
+    // === CREATE h4 ===
+    let rank = document.createElement('h4')
+    rank.textContent = item.ranking;
+    div.appendChild(rank)
     console.log(item.ranking)
+
+    // === CREATE div2 ===
+    let div2 = document.createElement('div')
+    div2.setAttribute("class", "postHeader")
+    titleDiv.appendChild(div2)
 
     // === CREATE atag ===
     let a = document.createElement('a')
     a.setAttribute("href", item.link)
     a.classList.add("link")
-    headerParent.appendChild(a)
+    div2.appendChild(a)
 
     // === CREATE h4 ===
     let h4 = document.createElement('h4')
@@ -64,21 +79,21 @@ function fillPostHeader(item,index) {
     // === CREATE span ===
     let span = document.createElement('span')
     span.textContent = item.points + " Points ";
-    headerParent.appendChild(span)
+    div2.appendChild(span)
 
     // === CREATE atag ===
     let a1 = document.createElement('a')
     a1.textContent = " by " + item.postedBy;
-    headerParent.appendChild(a1)
+    div2.appendChild(a1)
 
     // === CREATE span ===
     let span2 = document.createElement('span')
     span2.textContent = " " + item.postTime + " ";
-    headerParent.appendChild(span2)
+    div2.appendChild(span2)
 
     // === CREATE atag ===
     let a2 = document.createElement('a')
     a2.textContent = item.amountOfComments + " comments";
-    headerParent.appendChild(a2)
+    div2.appendChild(a2)
 
 }

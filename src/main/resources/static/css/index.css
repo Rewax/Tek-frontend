@@ -11,5 +11,24 @@ main{
     text-decoration: none!important;
     color: black;
 }
+.rank{
+    width: 2%!important;
+    float: left;
+}
+.postHeader{
+    width: 85%;
+    float: left;
+    margin-top: 15px;
+}
+
+.title::after{
+    content:"";
+    clear:both;
+    display:table;
+}
+
+rank{
+    left: 50px;
+}
 
 
